@@ -18,6 +18,10 @@ dependencies {
     implementation 'com.amazonaws:aws-java-sdk-s3:1.11.718'
     implementation 'com.amazonaws:aws-java-sdk-glue:1.11.718'
     implementation 'com.amazonaws:aws-java-sdk-iam:1.11.718'
+	implementation 'org.springframework.cloud:spring-cloud-aws-messaging:2.0.1.RELEASE'
+	implementation 'org.springframework:spring-jms'
+	implementation 'com.amazonaws:amazon-sqs-java-messaging-lib:1.0.0'
+	implementation 'com.amazonaws:amazon-sqs-java-messaging-lib:1.0.0'
     
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

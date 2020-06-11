@@ -43,6 +43,9 @@ public class FileUploadServiceImpl implements UploadService {
 					.enablePathStyleAccess().build();
 			List<Bucket> listBuckets = s3Client.listBuckets();
 			System.out.println(listBuckets);
+			if(!s3Client.doesBucketExistV2(bucketName)) {
+				s3Client.createBucket(bucketName);
+			}
 			TransferManager tm = TransferManagerBuilder.standard().withS3Client(s3Client).build();
 
 			// TransferManager processes all transfers asynchronously,
