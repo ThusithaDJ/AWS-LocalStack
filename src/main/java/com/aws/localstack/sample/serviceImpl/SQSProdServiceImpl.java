@@ -26,7 +26,7 @@ public class SQSProdServiceImpl implements SQSService {
 	private String awsCredentialProfile;
 
 	@Override
-	public void sendMessage(String json) {
+	public String sendMessage(String json) {
 		LOG.info("SQS PROD Service");
 
 		final AmazonSQS sqs = AmazonSQSClientBuilder.standard()
@@ -38,7 +38,7 @@ public class SQSProdServiceImpl implements SQSService {
 		SendMessageRequest send_msg_request = new SendMessageRequest().withQueueUrl(queueUrl).withMessageBody(json)
 				.withDelaySeconds(5);
 
-		sqs.sendMessage(send_msg_request);
+		return sqs.sendMessage(send_msg_request).getMessageId();
 
 	}
 

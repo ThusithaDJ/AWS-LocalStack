@@ -2,6 +2,6 @@ package com.aws.localstack.sample.service;
 
 public interface SQSService {
 	
-	public void sendMessage(String json);
+	public String sendMessage(String json);
 
 }

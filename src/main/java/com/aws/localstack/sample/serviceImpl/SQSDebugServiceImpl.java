@@ -35,7 +35,7 @@ public class SQSDebugServiceImpl implements SQSService {
 	
 	
 	@Override
-	public void sendMessage(String json) {
+	public String sendMessage(String json) {
 		LOG.info("SQS Debug Service");
 
 		EndpointConfiguration endpointConfiguration = new EndpointConfiguration(localstackSQSEndpointURL,
@@ -49,7 +49,7 @@ public class SQSDebugServiceImpl implements SQSService {
 		SendMessageRequest send_msg_request = new SendMessageRequest()
 				.withQueueUrl(queueUrl).withMessageBody(json).withDelaySeconds(5);
 
-		sqs.sendMessage(send_msg_request);
+		return sqs.sendMessage(send_msg_request).getMessageId();
 	}
 
 }
